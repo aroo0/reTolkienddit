@@ -1,7 +1,7 @@
 import './App.css';
 import SearchBar from '../components/searchBar/searchBar';
 import Posts from '../features/posts/posts';
-import Acounts from '../features/acounts/acounts';
+import Acounts from '../features/accounts/acounts';
 
 function App() {
   return (

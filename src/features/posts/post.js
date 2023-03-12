@@ -1,5 +1,6 @@
-import { DownArrow, UpArrow } from "../../components/Icons/Arrows";
-import { CommentIcon } from "../../components/Icons/CommentIcon";
+import { DownArrow, UpArrow } from "../../components/icons/arrows";
+import { CommentIcon } from "../../components/icons/commentIcon";
+import { CommentsList } from "../comments/commentsList";
 
 export default function Post() {
     return (
@@ -24,6 +25,7 @@ export default function Post() {
                             <span class='post__post-comment'>1.4k</span>
                         </div>
                     </div>
+                    <CommentsList />
                 </div>
             </div>
       </article>
