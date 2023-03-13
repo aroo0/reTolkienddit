@@ -32,7 +32,8 @@ const postsSlice = createSlice({
         .addCase(loadPostsForCategory.fulfilled, (state, action) => {
           const allPosts = action.payload.data.children
           allPosts.forEach(post => {
-            const { id, title, subreddit_name_prefixed, created, score, num_comments, selfText, url, post_hint } = post.data
+            const { id, title, subreddit_name_prefixed, created, score, num_comments, selftext, url, post_hint } = post.data
+            console.log(post)
             state.PostsById[id] = {
               id: id,
               title: title,
@@ -40,12 +41,10 @@ const postsSlice = createSlice({
               date: created,
               score: score,
               numComments: num_comments,
-              selfText: selfText,
+              selfText: selftext,
               img: url,
               postType: post_hint
-            }
-            console.log(state.PostsById[id])
-          
+            }          
           })
           state.isLoadingPosts = false;
           state.failedToLoadPosts = false;

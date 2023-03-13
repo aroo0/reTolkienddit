@@ -2,27 +2,35 @@ import { DownArrow, UpArrow } from "../../components/icons/arrows";
 import { CommentIcon } from "../../components/icons/commentIcon";
 import { CommentsList } from "../comments/commentsList";
 
-export default function Post() {
+export default function Post({post}) {
+    const { id, title, author, date, score, numComments, selfText, img, postType} = post
+    console.log(post)
+    
+    
     return (
         <article class='post'>
             <div class='post__post-wrapper'>
                 <div class='post__voting'>
                     <UpArrow />
-                    <span class='post__voting-counter'>13.3k</span>
+                    <span class='post__voting-counter'>{score > 1000 ? `${(Math.floor(score / 100) / 10).toFixed(1)}k` : score}
+</span>
                     <DownArrow />
                 </div>
                 <div class='post__post-container'>
-                    <h3 class='post__post-title'>Why is everyone so upset? I thought we like Tolkien stuff?</h3>
+                    <h3 class='post__post-title'>{title}</h3>
                     <div class='post__post-image-container'>
-                        <img src="https://i.redd.it/rx95hwuvg6ka1.jpg" alt="post image"/>
+                        {postType ? <img src={img} alt="post image"/> : null }
+                    </div>
+                    <div class='post__post-text'>
+                        {selfText ? <p>{selfText}</p> : null }
                     </div>
                     <hr></hr>
                     <div class='post__post-details'>
-                        <span class='post__post-author'>r/lotrmemes</span>
-                        <span class='post__post-date'>15 days ago</span>
+                        <span class='post__post-author'>{author}</span>
+                        <span class='post__post-date'>{date}</span>
                         <div class='post__post-comment-container'>
                             <CommentIcon />
-                            <span class='post__post-comment'>1.4k</span>
+                            <span class='post__post-comment'>{numComments}</span>
                         </div>
                     </div>
                     <CommentsList />

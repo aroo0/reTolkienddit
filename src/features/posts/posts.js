@@ -15,10 +15,13 @@ export default function Posts() {
 
     }, [])
 
-    return (
-    <section class='main-content__posts-list'>
-        <Post />
-    </section>
+    const posts = Object.values(postsById)
 
-    )
+  return (
+    <section className='main-content__posts-list'>
+      {posts.map(post => (
+        <Post key={post.id} post={post} />
+      ))}
+    </section>
+  )
 }

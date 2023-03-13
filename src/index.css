@@ -88,9 +88,10 @@ body {
 
 .main-content {
   display: flex;
-  margin: 2rem 2rem;
+  margin: 2rem auto;
   flex-wrap:wrap;
-  gap: 1rem
+  gap: 1rem;
+  width: 60%
 }
 
 .main-content__posts-list {
@@ -112,6 +113,7 @@ body {
   gap: 1rem;
   background-color: var(--light);
   border-radius: 30px;
+  margin-bottom: 1rem;
 }
 
 .post__post-container {
@@ -127,6 +129,10 @@ body {
   border-radius: 5px;
   height: auto; 
   object-fit: fill;
+}
+
+.post__post-text {
+  margin-top: 1rem;
 }
 
 .post__post-title {
