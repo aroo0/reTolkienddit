@@ -1,6 +1,7 @@
 import { DownArrow, UpArrow } from "../../components/icons/arrows";
 import { CommentIcon } from "../../components/icons/commentIcon";
 import { CommentsList } from "../comments/commentsList";
+import { getTimeAgo } from "../../utils/timeConverter";
 
 export default function Post({post}) {
     const { id, title, author, date, score, numComments, selfText, img, postType} = post
@@ -27,7 +28,7 @@ export default function Post({post}) {
                     <hr></hr>
                     <div class='post__post-details'>
                         <span class='post__post-author'>{author}</span>
-                        <span class='post__post-date'>{date}</span>
+                        <span class='post__post-date'>{getTimeAgo(date)}</span>
                         <div class='post__post-comment-container'>
                             <CommentIcon />
                             <span class='post__post-comment'>{numComments}</span>
