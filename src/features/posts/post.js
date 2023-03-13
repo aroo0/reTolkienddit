@@ -28,7 +28,7 @@ export default function Post() {
                     <CommentsList />
                 </div>
             </div>
-      </article>
+        </article>
     )
 
 }
