@@ -1,24 +1,31 @@
 import './App.css';
-import SearchBar from '../components/searchBar/searchBar';
 import Posts from '../features/posts/posts';
 import Acounts from '../features/accounts/acounts';
-import { Provider } from 'react-redux';
-import {store} from './store';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { MyHeader } from '../components/header/header';
+import { selectAccounts } from '../features/accounts/acountsSlice';
+import { useSelector } from 'react-redux';
+
 
 function App() {
+  const accounts = useSelector(selectAccounts)
   return (
-    <Provider store={store}>
-    <header class='header'>
-      <h1 class='header__logo'>re<span class='header__logo-tolkien'>Tolkien</span>ddit</h1>
-      <SearchBar class='header__search-bar' />
-    </header>
-    <main class='main-content'>
-      <Posts />
+    <Router>
+    <MyHeader />
+    <main className='main-content'>
+      <Routes>
+        {Object.values(accounts).map(entry => (
+                <Route 
+                  key={entry.rdit}
+                  path={`/${entry.rdit}`} 
+                  element={<Posts url={entry.jsonUrl} />} />
+              ))}
+
+      </Routes>
       <Acounts />
 
     </main>
-
-    </Provider>
+    </Router>
   );
 }
 

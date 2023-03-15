@@ -1,19 +1,19 @@
 import Post from "./post"
 import { useSelector, useDispatch } from "react-redux"
-import { selectPosts, loadPostsForCategory } from "./postsSlice"
+import { resetPosts, selectPosts, loadPostsForCategory } from "./postsSlice"
 import { useEffect } from "react"
 
 
-export default function Posts() {
+export default function Posts({url}) {
     const postsById = useSelector(selectPosts)
     const dispatch = useDispatch()
 
 
-    useEffect(()=> {
-        dispatch(loadPostsForCategory())
+    useEffect(() => {
+      dispatch(resetPosts())
+      dispatch(loadPostsForCategory(url)) 
 
-
-    }, [])
+    }, [url])
 
     const posts = Object.values(postsById)
 

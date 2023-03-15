@@ -5,7 +5,6 @@ import { getTimeAgo } from "../../utils/timeConverter";
 
 export default function Post({post}) {
     const { id, title, author, date, score, numComments, selfText, img, postType} = post
-    console.log(post)
     
     
     return (

@@ -4,8 +4,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // Create loadCommentsForArticleId here.
 export const loadPostsForCategory = createAsyncThunk(
     "posts/loadPostForCategory",
-    async () => {
-        const response = await fetch(`https://www.reddit.com/search.json?q=tolkien`);
+    async (url) => {
+        const response = await fetch(url);
         const json = await response.json();
         return json;
     }
@@ -19,6 +19,12 @@ const postsSlice = createSlice({
       isLoadingPosts: false,
       failedToLoadPosts: false
     },
+  reducers: {
+    resetPosts(state) {
+      state.isLoadingPosts = true;
+      state.PostsById = {}
+    }},
+  
   extraReducers: (builder) => {
       builder
         .addCase(loadPostsForCategory.pending, (state) => {
@@ -33,7 +39,6 @@ const postsSlice = createSlice({
           const allPosts = action.payload.data.children
           allPosts.forEach(post => {
             const { id, title, subreddit_name_prefixed, created, score, num_comments, selftext, url, post_hint } = post.data
-            console.log(post)
             state.PostsById[id] = {
               id: id,
               title: title,
@@ -56,4 +61,5 @@ const postsSlice = createSlice({
 
 export const selectPosts = (state) => state.posts.PostsById;
 export const isLoadingPosts = (state) => state.posts.isLoadingPosts;
+export const {resetPosts} = postsSlice.actions
 export default postsSlice.reducer

@@ -1,33 +1,23 @@
-import avatar from '../../data/communityIcon_wmmxgfx6xrf01.png'
+import { Account } from './account'
+import { selectAccounts } from './acountsSlice'
+import { useSelector } from 'react-redux'
 
-export default function Acounts() {
-    return (
-        <aside class='main-content__accounts-panel'>
-          <div class='accounts-panel__wrapper'>
-          <h2 class='accounts-panel__title'>Subreddits</h2>
-          <ul class='accounts-list'>
-            <li>
-              <button class='account'>
-                <img class='account__avatar' src={avatar} alt="user avatar" />
-                Tolkien
-              </button>
-            </li>
-            <li>
-              <button class='account'>
-                <img class='account__avatar' src={avatar} alt="user avatar" />
-                TolkienMemes
-              </button>
-            </li>
-            <li>
-              <button class='account'>
-                <img class='account__avatar' src={avatar} alt="user avatar" />
-                YourLOTRquotes
-              </button>
-            </li>
+export default function Accounts() {
+  const accounts = useSelector(selectAccounts)
 
-          </ul>
-        </div>
-      </aside>
 
-    )
+  return (
+    <aside className='main-content__accounts-panel'>
+      <div className='accounts-panel__wrapper'>
+        <h2 className='accounts-panel__title'>Subreddits</h2>
+        <ul className='accounts-list'>
+          {Object.values(accounts).map(entry => (
+              <Account 
+                key={entry.rdit}
+                account={entry} />
+            ))}
+        </ul>
+      </div>
+    </aside>
+  )
 }
