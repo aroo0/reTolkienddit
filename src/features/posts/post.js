@@ -9,7 +9,7 @@ export function Post({post}) {
     
     return (
         <article class='post'>
-            <div class='post__post-wrapper'>
+            <div class='post__post-wrapper wrapper'>
                 <div class='post__voting'>
                     <UpArrow />
                     <span class='post__voting-counter'>{score > 1000 ? `${(Math.floor(score / 100) / 10).toFixed(1)}k` : score}
