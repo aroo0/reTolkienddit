@@ -5,7 +5,7 @@ const accountsSlice = createSlice({
     name: 'accounts',
     initialState: {
         'Tolkien': {
-            rdit: 'tolkien',
+            rdit: '',
             name: 'Tolkien',
             jsonUrl: 'https://www.reddit.com/search.json?q=$tolkien',
             img: 'https://www.pngitem.com/pimgs/m/231-2312027_jrr-tolkien-logo-hd-png-download.png'
