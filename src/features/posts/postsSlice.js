@@ -15,15 +15,21 @@ export const loadPostsForCategory = createAsyncThunk(
 const postsSlice = createSlice({
   name:'posts',
   initialState: {
-      PostsById: {},
+      postsById: {},
       isLoadingPosts: false,
-      failedToLoadPosts: false
+      failedToLoadPosts: false,
+      filterKeyword: ''
     },
   reducers: {
     resetPosts(state) {
       state.isLoadingPosts = true;
-      state.PostsById = {}
+      state.postsById = {}
+    },
+    setFilterKeyword(state, action) {
+      state.filterKeyword = action.payload;
     }},
+
+    
   
   extraReducers: (builder) => {
       builder
@@ -39,7 +45,7 @@ const postsSlice = createSlice({
           const allPosts = action.payload.data.children
           allPosts.forEach(post => {
             const { id, title, subreddit_name_prefixed, created, score, num_comments, selftext, url, post_hint } = post.data
-            state.PostsById[id] = {
+            state.postsById[id] = {
               id: id,
               title: title,
               author: subreddit_name_prefixed,
@@ -59,7 +65,16 @@ const postsSlice = createSlice({
 }})
 
 
-export const selectPosts = (state) => state.posts.PostsById;
+export const selectPosts = (state) => state.posts.postsById;
 export const isLoadingPosts = (state) => state.posts.isLoadingPosts;
-export const {resetPosts} = postsSlice.actions
+export const selectFilteredPosts = (state) => {
+  const filterKeyword = state.posts.filterKeyword.toLowerCase(); // convert to lowercase for case-insensitive search
+  const postsById = state.posts.postsById;
+  return Object.values(postsById).filter(post =>
+    post.title.toLowerCase().includes(filterKeyword));
+};
+
+
+export const {resetPosts, setFilterKeyword} = postsSlice.actions
 export default postsSlice.reducer
+

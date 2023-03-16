@@ -1,4 +1,4 @@
-import SearchBar from "../searchBar/searchBar"
+import SearchBar from "../search/searchBar"
 
 
 export function MyHeader() {

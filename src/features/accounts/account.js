@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 
 export function Account({account}) {
-    const { rdit, name, jsonUrl, img} = account
+    const { rdit, name, img} = account
     return (
         <li>
         <NavLink to={`/${rdit}`} className='account__link'>

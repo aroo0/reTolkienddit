@@ -1,27 +1,20 @@
-import Post from "./post"
 import { useSelector, useDispatch } from "react-redux"
 import { resetPosts, selectPosts, loadPostsForCategory } from "./postsSlice"
-import { useEffect } from "react"
-
+import { useEffect, useState } from "react"
+import { PostsList } from "./postsList"
+import { useLocation } from "react-router-dom"
 
 export default function Posts({url}) {
-    const postsById = useSelector(selectPosts)
-    const dispatch = useDispatch()
+  const postsById = useSelector(selectPosts)
+  const dispatch = useDispatch()
+  
 
-
-    useEffect(() => {
-      dispatch(resetPosts())
-      dispatch(loadPostsForCategory(url)) 
-
-    }, [url])
-
-    const posts = Object.values(postsById)
+  useEffect(() => {
+    dispatch(resetPosts());
+    dispatch(loadPostsForCategory(url))
+  }, [dispatch, url])
 
   return (
-    <section className='main-content__posts-list'>
-      {posts.map(post => (
-        <Post key={post.id} post={post} />
-      ))}
-    </section>
+    <PostsList posts={postsById} />
   )
 }

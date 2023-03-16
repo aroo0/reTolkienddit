@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MyHeader } from '../components/header/header';
 import { selectAccounts } from '../features/accounts/acountsSlice';
 import { useSelector } from 'react-redux';
+import { SearchPage } from '../components/search/searchPage';
 
 
 function App() {
@@ -13,17 +14,28 @@ function App() {
     <Router>
     <MyHeader />
     <main className='main-content'>
+    <section className='main-content__posts-list'>
+
       <Routes>
         {Object.values(accounts).map(entry => (
+          <>
                 <Route 
                   key={entry.rdit}
                   path={`/${entry.rdit}`} 
-                  element={<Posts url={entry.jsonUrl} />} />
+                  element={<Posts url={entry.jsonUrl} />}/>
+  
+                  <Route path={`${entry.rdit}/search`} element={<SearchPage />}/> 
+
+
+</>
               ))}
 
-      </Routes>
-      <Acounts />
 
+
+
+      </Routes>
+      </section>
+      <Acounts />
     </main>
     </Router>
   );
