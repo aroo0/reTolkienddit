@@ -1,4 +1,3 @@
-import './App.css';
 import Posts from '../features/posts/posts';
 import Acounts from '../features/accounts/acounts';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -14,27 +13,21 @@ function App() {
     <Router>
     <MyHeader />
     <main className='main-content'>
-    <section className='main-content__posts-list'>
+      <section className='main-content__posts-list'>
 
-      <Routes>
-        {Object.values(accounts).map(entry => (
-          <>
-                <Route 
-                  key={entry.rdit}
-                  path={`/${entry.rdit}`} 
-                  element={<Posts url={entry.jsonUrl} />}/>
-  
-                  <Route path={`${entry.rdit}/search`} element={<SearchPage />}/> 
+        <Routes>
+          {Object.values(accounts).map(entry => (
+            <>
+                  <Route 
+                    key={entry.rdit}
+                    path={`/${entry.rdit}`} 
+                    element={<Posts url={entry.jsonUrl} />}/>
+                    <Route path={`${entry.rdit}/search`} element={<SearchPage />}/> 
+            </>
+                ))}
 
-
-</>
-              ))}
-
-
-
-
-      </Routes>
-      </section>
+        </Routes>
+        </section>
       <Acounts />
     </main>
     </Router>

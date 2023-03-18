@@ -36,7 +36,6 @@ const commentsSlice = createSlice({
             const postId = action.payload.postId;
             const allComments = action.payload.json['1'].data.children;
             state.commentsByPostId[postId] = [];
-            console.log(allComments)
             allComments.forEach((comment) => {
               if (comment.kind === 't1') {
                 const { id, author, created, body } = comment.data;

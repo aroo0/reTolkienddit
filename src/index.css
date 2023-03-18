@@ -103,12 +103,12 @@ button {
 }
 
 .main-content__posts-list {
-  flex: 3 65%;
+  flex: 3 60%;
 
 }
 
 .main-content__accounts-panel {
-  flex: 2 400px;
+  flex: 2 300px;
 
 }
 
