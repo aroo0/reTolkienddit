@@ -365,3 +365,47 @@ button {
   font-size: 0.8rem;
 
 }
+
+
+/* Loading Animation */
+
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.loading-animation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.loading-text {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

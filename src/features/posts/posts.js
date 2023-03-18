@@ -3,6 +3,7 @@ import { resetPosts, selectPosts, loadPostsForCategory, isLoadingPosts } from ".
 import { useEffect} from "react"
 import { PostsList } from "./postsList"
 import { useLocation } from "react-router-dom"
+import { Loading } from "../../components/loading"
 
 export default function Posts({url}) {
   const postsById = useSelector(selectPosts)
@@ -17,8 +18,10 @@ export default function Posts({url}) {
     dispatch(loadPostsForCategory(url))
   }, [dispatch, url, location])
 
-  if (loading) return <div className='wrapper' >Loading Posts</div>
+ if (loading) return (
+    < Loading />
 
+)
   return (
     
     <PostsList posts={postsById} />
