@@ -29,6 +29,7 @@ const postsSlice = createSlice({
       state.filterKeyword = action.payload;
     }},
 
+
     
   
   extraReducers: (builder) => {
@@ -74,7 +75,7 @@ export const selectFilteredPosts = (state) => {
     post.title.toLowerCase().includes(filterKeyword));
 };
 
-
 export const {resetPosts, setFilterKeyword} = postsSlice.actions
 export default postsSlice.reducer
+
 

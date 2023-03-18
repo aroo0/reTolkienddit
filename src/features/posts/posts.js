@@ -20,6 +20,7 @@ export default function Posts({url}) {
   if (loading) return <div className='wrapper' >Loading Posts</div>
 
   return (
+    
     <PostsList posts={postsById} />
   )
 
