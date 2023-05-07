@@ -1,6 +1,6 @@
 # reTolkienddit
 
-![GitHub repo size](https://img.shields.io/github/repo-size/aroo0/reTolkienddit) ![GitHub contributors](https://img.shields.io/github/contributors/aroo0/reTolkienddit) ![GitHub stars](https://img.shields.io/github/stars/aroo0/reTolkienddit?style=social) ![GitHub forks](https://img.shields.io/github/forks/aroo0/reTolkienddit?style=social) ![GitHub license](https://img.shields.io/github/license/aroo0/reTolkienddit)
+![GitHub repo size](https://img.shields.io/github/repo-size/aroo0/reTolkienddit) ![GitHub contributors](https://img.shields.io/github/contributors/aroo0/reTolkienddit) ![GitHub stars](https://img.shields.io/github/stars/aroo0/reTolkienddit?style=social) ![GitHub forks](https://img.shields.io/github/forks/aroo0/reTolkienddit?style=social)
 
 reTolkienddit is a React web application that utilizes Redux and React-Router to provide users with the latest and most popular posts related to Tolkien or Lord of the Rings interests from the Reddit API. The application includes a range of features, including post voting, personalized subscriptions, and search functionality.
 
