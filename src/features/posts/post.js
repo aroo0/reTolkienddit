@@ -24,7 +24,6 @@ export function Post({ post }) {
 
   return (
     <article class="post">
-      <div class="post__post-wrapper wrapper">
         <Vote score={score} />
         <div class="post__post-container">
           <h3 class="post__post-title">{title}</h3>
@@ -49,7 +48,6 @@ export function Post({ post }) {
 
           {commentVisibility ? <CommentsList postId={id} /> : null}
         </div>
-      </div>
     </article>
   );
 }

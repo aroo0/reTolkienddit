@@ -21,6 +21,12 @@ html {
 
 }
 
+@media (max-width: 600px) {
+  html {
+    font-size: 15px
+  }
+}
+
 body {
   margin: 0;
 }
@@ -30,6 +36,8 @@ body {
 
 .header {
   text-align: center;
+  display: grid;
+  justify-content: center;
 
 }
 
@@ -50,7 +58,7 @@ body {
 .search-bar {
   justify-content: center;
   position: relative;
-  width: 18rem;
+  max-width: 18rem;
   margin: auto;
 
 }
@@ -95,38 +103,60 @@ button {
 /* MAIN */
 
 .main-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr .4fr;
   margin: 2rem auto;
-  flex-wrap:wrap;
   gap: 1rem;
   width: 90%
 }
 
+@media (max-width: 870px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    width: 95%
+  }
+}
+
+
+
 .main-content__posts-list {
-  flex: 3 60%;
+
 
 }
 
 .main-content__accounts-panel {
-  flex: 2 300px;
 
 }
 
 /* POST */
 
-.wrapper {
-  padding: 2rem 2rem 2rem 1rem;
+.post {
   background-color: var(--light);
+  padding: 2rem 2rem 2rem 1rem;
   border-radius: 30px;
   margin-bottom: 1rem;
-}
-
-.post__post-wrapper {
-
   display: flex;
   gap: 1rem;
 
 }
+
+
+
+@media screen and (max-width: 310px) {
+
+
+  .post:nth-child(even) {
+    background-color: blue;
+
+  }
+
+  .post:nth-child(odd) {
+    background-color: red;
+
+  }
+
+}
+
 
 .search__search-result-wrappper {
   padding-left: 2.5rem;
@@ -226,6 +256,7 @@ button {
 .post__post-comment-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: .1rem .3rem;
   height: none;
   border-radius: 5px;
