@@ -393,6 +393,7 @@ button {
 }
 .comment__comment-content {
   font-size: 0.8rem;
+  overflow-wrap: anywhere;
 
 }
 
