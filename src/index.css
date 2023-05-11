@@ -58,8 +58,9 @@ body {
 .search-bar {
   justify-content: center;
   position: relative;
-  max-width: 18rem;
   margin: auto;
+  max-width: 25rem;
+  min-width: 17rem;
 
 }
 
@@ -103,30 +104,23 @@ button {
 /* MAIN */
 
 .main-content {
+  width: 95%;
   display: grid;
   grid-template-columns: 1fr .4fr;
   margin: 2rem auto;
   gap: 1rem;
-  width: 90%
+
 }
 
 @media (max-width: 870px) {
   .main-content {
     grid-template-columns: 1fr;
-    width: 95%
+    width: 100%;
   }
 }
 
 
 
-.main-content__posts-list {
-
-
-}
-
-.main-content__accounts-panel {
-
-}
 
 /* POST */
 
@@ -134,26 +128,29 @@ button {
   background-color: var(--light);
   padding: 2rem 2rem 2rem 1rem;
   border-radius: 30px;
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem;
   display: flex;
   gap: 1rem;
-
 }
 
 
 
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 420px) {
 
+  .post {
+    padding: 1.4rem 1.4rem 1.4rem 0.9rem;
+    border-radius: 15px;
+    margin: 0.5rem;
 
-  .post:nth-child(even) {
-    background-color: blue;
+    & svg {
+      width: 18px;
+    }
 
   }
 
-  .post:nth-child(odd) {
-    background-color: red;
 
-  }
+
+
 
 }
 
@@ -181,6 +178,7 @@ button {
 
 .post__post-text {
   margin-top: 1rem;
+  overflow-wrap: anywhere;
 }
 
 .post__post-title {
